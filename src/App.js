@@ -68,7 +68,7 @@ class App extends Component {
           <Card.Img  variant ="top" src ={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${this.state.location.lat},${this.state.location.lon}&zoom=18`}/>
           <Card.Title>{this.state.location.display_name}</Card.Title>
           <Card.Text>Latitude:{this.state.location.lat}</Card.Text>
-          <Card.Text>Longitue:{this.state.location.lon}</Card.Text>
+          <Card.Text>Longitude:{this.state.location.lon}</Card.Text>
           </Card.Body>
           <Card.Text>
           {
