@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Component } from 'react';
 import  Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -37,7 +38,7 @@ class App extends Component {
 
       console.error('Unable to find city', this.state.searchQuery);
 
-      this.setState({ error: true });
+      this.setState({ error: true, location: '' });
     }
 
 
@@ -51,9 +52,9 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
+      <Container fluid>
         <Form>
-        <input onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="search for a city"></input>
+        <FormControl onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="search for a city"/>
           <Button varient="dark" onClick = {this.getLocation}>Explore!</Button>
 
         </Form>
