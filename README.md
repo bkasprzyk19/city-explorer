@@ -1,3 +1,58 @@
+
+# City Explorer
+
+**Author**: Brian Kasprzyk
+
+**Version**: 1.0.7
+
+## Overview
+<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+This application provides up-to-date location data of any commonly searchable city in the world. 
+
+![image](./public/webMap.JPG
+)
+
+## Getting Started
+
+https://trello.com/b/JDsFcvjz/lab-6 basically follow the trello link to a T and this lab instructions and you will have yourself the same app. It also helps to have demos and reference code of others who are trying to build the same program. 
+
+
+<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+## Architecture
+
+Using React Bootstrap, Axios, trello, gitHub, Location IQ Geocoding API, NPM, JSX Ubuntu, netlify, VS Code.
+<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+## Change Log
+
+https://github.com/bkasprzyk19/city-explorer/pulls?q=is%3Apr+is%3Aclosed please see commit history and https://github.com/bkasprzyk19/city-explorer/pulse insights tab to view changes made over the course of the project.
+<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+
+01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+## Credit and Collaborations
+
+
+________________________________________________
+________________________________________________
+
+
+Name of feature: Asynchronous code, and APIs
+
+Estimate of time needed to complete: 8 hrs
+
+Start time: 1330
+Finish time: 2200
+
+Actual time needed to complete: 5 hrs on and off between this and code challenge and such. Still working out some things here.
+
+_________________________________________________
+
+_________________________________________________
+
+
+
 # Getting Started with Create React App
 
 
