@@ -17,11 +17,6 @@ class App extends Component {
     }
   }
 
-  handleChange = event => {
-    this.setState({
-      searchQuery: event.target.value,
-    });
-  }
 
   getLocation = async () => {
 
@@ -47,13 +42,18 @@ class App extends Component {
 
 
   }
+  
+  handleChange = event => {
+    this.setState({
+      searchQuery: event.target.value,
+    });
+  }
 
   render() {
     return (
       <Container>
         <Form>
-          <Form.Label>Enter your search..</Form.Label>
-          <Form.Control onChange= {this.handleChange} value={this.state.searchQuery}/>
+        <input onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="search for a city"></input>
           <Button varient="dark" onClick = {this.getLocation}>Explore!</Button>
 
         </Form>
@@ -70,12 +70,14 @@ class App extends Component {
           <Card.Text>Latitude:{this.state.location.lat}</Card.Text>
           <Card.Text>Longitue:{this.state.location.lon}</Card.Text>
           </Card.Body>
+          <Card.Text>
+          {
+          this.state.error && <h2>Invalid entry..</h2>
+        }</Card.Text>
           </Card>
         }
 
-        {
-          this.state.error && <h2>Invalid entry..</h2>
-        }
+      
       </Container>
     )
   }
