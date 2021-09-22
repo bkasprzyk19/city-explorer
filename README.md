@@ -3,13 +3,16 @@
 
 **Author**: Brian Kasprzyk
 
-**Version**: 1.0.7
+**Version**: 1.2.1
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 This application provides up-to-date location data of any commonly searchable city in the world. 
 
 ![image](./public/webMap.JPG
+)
+
+![image](./public/7.2.JPG
 )
 
 ## Getting Started
@@ -46,6 +49,16 @@ Start time: 1330
 Finish time: 2200
 
 Actual time needed to complete: 5 hrs on and off between this and code challenge and such. Still working out some things here.
+
+Name of feature: Custom Servers with Node and Express
+
+Estimate of time needed to complete: 6 hrs
+
+Start time:1300
+
+Finish time: 2300
+
+Actual time needed to complete: TBD appx 6 hrs
 
 _________________________________________________
 

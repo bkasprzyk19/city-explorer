@@ -15,7 +15,7 @@ class App extends Component {
       searchQuery: '',
       location: {},
       error: false,
-      firstClimate:[]
+      climates:{}
     }
   }
 
@@ -31,10 +31,16 @@ class App extends Component {
       const response = await axios.get(url);
 
       const location = response.data[0];
+      
 
-      const firstClimate = await axios.get(`${API}/climates`);
+      const responsePrime = await axios.get(`${API}/climates?lat=${location.lat}&lon=${location.lon}&city_name=${this.state.city_name}&format=json`);
 
-      this.setState({ firstClimate: firstClimate.data });
+      const climates = responsePrime;
+      console.log(typeof(responsePrime));
+
+     
+
+      this.setState({ climates });
 
       this.setState({
         location, // or location:location
@@ -44,7 +50,7 @@ class App extends Component {
 
     } catch (error) {
 
-      console.error('Unable to find city', this.state.searchQuery);
+      console.error('Unable to find city', this.state.searchQuery, this.state.climates);
 
       this.setState({ error: true, location: '' });
     }
@@ -79,9 +85,13 @@ class App extends Component {
           <Card.Text>Latitude:{this.state.location.lat}</Card.Text>
           <Card.Text>Longitude:{this.state.location.lon}</Card.Text>
           
+          <Card.Text>Description:{this.state.climates.description}</Card.Text>
+          <Card.Text>Date:{this.state.climates.valid_date}</Card.Text>
+           <Card.Text>Date:{this.state.climates.city_name}</Card.Text>
           
-          {this.state.firstClimate.description && <h2>Description:{this.state.firstClimate.description}</h2>}
-          {this.state.firstClimate.valid_date && <h2>Date:{this.state.firstClimate.valid_date}</h2>}
+          
+          
+         
         
           
           </Card.Body>
