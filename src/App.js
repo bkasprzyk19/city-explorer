@@ -15,13 +15,16 @@ class App extends Component {
       searchQuery: '',
       location: {},
       error: false,
+      firstClimate:[]
     }
   }
 
 
   getLocation = async () => {
 
-    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`
+    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
+
+    const API = 'http://localhost:3001';
 
     try {
 
@@ -29,9 +32,14 @@ class App extends Component {
 
       const location = response.data[0];
 
+      const firstClimate = await axios.get(`${API}/climates`);
+
+      this.setState({ firstClimate: firstClimate.data });
+
       this.setState({
         location, // or location:location
         error: false,
+        
       });
 
     } catch (error) {
@@ -70,7 +78,14 @@ class App extends Component {
           <Card.Title>{this.state.location.display_name}</Card.Title>
           <Card.Text>Latitude:{this.state.location.lat}</Card.Text>
           <Card.Text>Longitude:{this.state.location.lon}</Card.Text>
+          
+          
+          {this.state.firstClimate.description && <h2>Description:{this.state.firstClimate.description}</h2>}
+          {this.state.firstClimate.valid_date && <h2>Date:{this.state.firstClimate.valid_date}</h2>}
+        
+          
           </Card.Body>
+
           <Card.Text>
           {
           this.state.error && <h2>Invalid entry..</h2>
