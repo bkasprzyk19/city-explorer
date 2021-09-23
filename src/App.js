@@ -2,9 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Component } from 'react';
 import  Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Weather from './Weather.js'
 
 import axios from 'axios';
 
@@ -15,45 +16,55 @@ class App extends Component {
       searchQuery: '',
       location: {},
       error: false,
-      climates:{}
+      climates:[]
     }
   }
 
 
   getLocation = async () => {
 
-    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
+    const locAPI = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
 
-    const API = 'http://localhost:3001';
-
+   
     try {
 
-      const response = await axios.get(url);
+      const response = await axios.get(locAPI);
 
-      const location = response.data[0];
       
 
-      const responsePrime = await axios.get(`${API}/climates?lat=${location.lat}&lon=${location.lon}&city_name=${this.state.city_name}&format=json`);
-
-      const climates = responsePrime;
-      console.log(typeof(responsePrime));
-
-     
-
-      this.setState({ climates });
-
       this.setState({
-        location, // or location:location
+        location: response.data[0],
         error: false,
         
       });
 
     } catch (error) {
 
-      console.error('Unable to find city', this.state.searchQuery, this.state.climates);
+      console.error('errors on catch');
 
-      this.setState({ error: true, location: '' });
+      this.setState({ error: true,  });
     }
+
+
+  }
+
+  getWeather = async () => {
+
+    const API = 'http://localhost:3001';
+
+    try {
+
+      const forecastData = await axios.get(`${API}/weather?searchQuery=${this.state.searchQuery}&format=json`);
+
+      const climates = forecastData.data;
+      console.log(typeof(forecastData));
+
+      this.setState({ climates: climates, });
+    }
+   catch {
+     console.log('error');
+     this.setState({ error: true, })
+   }
 
 
   }
@@ -68,7 +79,7 @@ class App extends Component {
     return (
       <Container fluid>
         <Form>
-        <FormControl onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="search for a city"/>
+        <Form.Control onChange={this.handleChange} value={this.state.searchQuery}/>
           <Button varient="dark" onClick = {this.getLocation}>Explore!</Button>
 
         </Form>
@@ -85,9 +96,8 @@ class App extends Component {
           <Card.Text>Latitude:{this.state.location.lat}</Card.Text>
           <Card.Text>Longitude:{this.state.location.lon}</Card.Text>
           
-          <Card.Text>Description:{this.state.climates.description}</Card.Text>
-          <Card.Text>Date:{this.state.climates.valid_date}</Card.Text>
-           <Card.Text>Date:{this.state.climates.city_name}</Card.Text>
+          <Weather climates={this.state.climates}/>
+          
           
           
           
