@@ -9,11 +9,15 @@
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 This application provides up-to-date location data of any commonly searchable city in the world. 
 
+![image](./public/wrrc-city.JPG
+)
+
 ![image](./public/webMap.JPG
 )
 
 ![image](./public/7.2.JPG
 )
+
 
 ## Getting Started
 
