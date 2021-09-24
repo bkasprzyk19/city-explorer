@@ -64,6 +64,17 @@ Finish time: 2300
 
 Actual time needed to complete: TBD appx 6 hrs
 
+Name of feature: Refactoring
+
+Estimate of time needed to complete: 5 hrs
+
+Start time:1300
+
+Finish time: 2300
+
+Actual time needed to complete: TBD appx 6 hrs
+
+
 _________________________________________________
 
 _________________________________________________
@@ -75,7 +86,11 @@ Close me out please.
 
 
 
-heres the link https://city-explorer19.netlify.app/
+heres the links:
+
+ https://city-explorer19.netlify.app/
+
+https://city-explorer19.herokuapp.com/
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

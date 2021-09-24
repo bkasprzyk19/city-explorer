@@ -51,11 +51,12 @@ class App extends Component {
   getWeather = async () => {
 
     // const API = 'http://localhost:3001';
-    const weatherBIT = 'https://api.weatherbit.io/v2.0/current';
+    let server = process.env.REACT_APP_SERVER
+    
 
     try {
 
-      const forecastData = await axios.get(`${weatherBIT}?searchQuery=${this.state.searchQuery}&lat=${this.state.location.lat}&lon=${this.state.location.lon}&format=json`);
+      const forecastData = await axios.get(`${server}?searchQuery=${this.state.searchQuery}&lat=${this.state.location.lat}&lon=${this.state.location.lon}&format=json`);
 
       const climates = forecastData.data;
       console.log(typeof(forecastData));
