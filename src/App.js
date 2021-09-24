@@ -50,7 +50,7 @@ class App extends Component {
 
   getWeather = async () => {
 
-    const API = 'http://localhost:3001';
+    // const API = 'http://localhost:3001';
     const weatherBIT = 'https://api.weatherbit.io/v2.0/current';
 
     try {
