@@ -9,6 +9,8 @@ import Weather from './Weather.js'
 
 import axios from 'axios';
 
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,12 @@ class App extends Component {
       error: false,
       climates:[]
     }
+  }
+
+  handleChange = event => {
+    this.setState({
+      searchQuery: event.target.value,
+    });
   }
 
 
@@ -56,9 +64,9 @@ class App extends Component {
 
     try {
 
-      const forecastData = `${server}?searchQuery=${this.state.searchQuery}&lat=${this.state.location.lat}&lon=${this.state.location.lon}&format=json`;
+      const forecastAPI = `${server}?searchQuery=${this.state.searchQuery}&lat=${this.state.location.lat}&lon=${this.state.location.lon}&format=json`;
 
-      await axios.get(forecastData);
+      const forecastData = await axios.get(forecastAPI);
 
       const climates = forecastData.data;
       
@@ -73,11 +81,7 @@ class App extends Component {
 
   }
   
-  handleChange = event => {
-    this.setState({
-      searchQuery: event.target.value,
-    });
-  }
+ 
 
   render() {
     return (
