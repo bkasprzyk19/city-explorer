@@ -56,10 +56,12 @@ class App extends Component {
 
     try {
 
-      const forecastData = await axios.get(`${server}?searchQuery=${this.state.searchQuery}&lat=${this.state.location.lat}&lon=${this.state.location.lon}&format=json`);
+      const forecastData = `${server}?searchQuery=${this.state.searchQuery}&lat=${this.state.location.lat}&lon=${this.state.location.lon}&format=json`;
+
+      await axios.get(forecastData);
 
       const climates = forecastData.data;
-      console.log(typeof(forecastData));
+      
 
       this.setState({ climates: climates, });
     }
